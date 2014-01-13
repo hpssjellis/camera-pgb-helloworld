@@ -10,20 +10,17 @@
 
     function onDeviceReady() {
         alert('Camera device ready to use');
-        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50, allowEdit: true,
-        destinationType: Camera.DestinationType.FILE_URI });
-       
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL});
     }
-    
   
 
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onCameraSuccess(imageData) {
      alert('photo success')   
-   //  document.getElementById('myImage1').src =  "data:image/jpeg;base64," + imageData;
-     var image = document.getElementById('myImage1');
-     image.src = imageURI;
+     document.getElementById('myImage1').src =  "data:image/jpeg;base64," + imageData;
+    // var image = document.getElementById('myImage1');
+    // image.src = imageURI;
 
       
     }
