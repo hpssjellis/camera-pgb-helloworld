@@ -35,7 +35,7 @@
     
     function onDataSuccess(imageData) {
      alert('photo data success')   
-     document.getElementById('myImage1').src =  "data:image/jpeg;base64," + imageData;
+     document.getElementById('myImage2').src =  "data:image/jpeg;base64," + imageData;
     // var image = document.getElementById('myImage1');
     // image.src = imageURI;
 
@@ -54,8 +54,8 @@
 
 <h3>Using the Camera with Phoneagp Build</h3>
 
-<img  id="myImage1"   style="display:block; width:300px; height:200px;" src="" />
-<img  id="myImage2"   style="display:block; width:100px;" src="" />
+Image URI:<img  id="myImage1"   style="display:block; width:300px; height:200px;" src="" /><br>
+Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px;" src="" /><br>
 
    
 
@@ -71,7 +71,7 @@
 
 <input type=button value="Picture As Data" style="font-size:30px" onclick="{
 
-       navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.DATA_URL});
+       navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, allowEdit: true, destinationType: Camera.DestinationType.DATA_URL});
  
   
 }">
