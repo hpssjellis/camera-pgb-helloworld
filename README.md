@@ -1,4 +1,3 @@
 pgb-helloworld-camera
 =====================
-
-Trying to get the phonegap build camera working
+Got the camera working using phonegap build and my Samsung S3.
