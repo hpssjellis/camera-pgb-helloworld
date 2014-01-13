@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+        alert('Camera device ready to use');
+        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI });
+       
+    }
+    
+  
+
+    // onSuccess: Get a snapshot of the current acceleration
+    //
+    function onCameraSuccess(acceleration) {
+        
+    var image = document.getElementById('myImage1');
+    image.src = imageURI;
+    }
+
+    // onError: Failed to get the acceleration
+    //
+    function onCameraError() {
+        alert('onError!');
+    }
+    
+
+
+
+</script>
+</head>
+<body>
+<font style="font-size:30px">  
+
+<h3>Using the Camera with Phoneagp Build</h3>
+
+<img style="display:none;" id="myImage1" src="" />
+
+   
+
+<input type=button value="Another Picture" style="font-size:30px" onclick="{
+
+        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI });
+  
+}">
+
+    
+    
+       
+</font>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function onSuccess(imageURI) {
+    var image = document.getElementById('myImage');
+    image.src = imageURI;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
