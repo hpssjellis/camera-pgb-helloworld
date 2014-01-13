@@ -10,17 +10,17 @@
 
     function onDeviceReady() {
         alert('Camera device ready to use');
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL});
     }
   
 
     // onSuccess: Get a snapshot of the current acceleration
     //
-    function onCameraSuccess(imageData) {
-     alert('photo success')   
-     document.getElementById('myImage1').src =  "data:image/jpeg;base64," + imageData;
-    // var image = document.getElementById('myImage1');
-    // image.src = imageURI;
+    
+    
+    
+        function onURISuccess(imageURI) {
+     alert('photo URI success')   
+   document.getElementById('myImage1').src = imageURI;
 
       
     }
@@ -30,6 +30,19 @@
     function onCameraError(message) {
         alert('Failed because: ' + message)
     }
+    
+    
+    
+    function onDataSuccess(imageData) {
+     alert('photo data success')   
+     document.getElementById('myImage1').src =  "data:image/jpeg;base64," + imageData;
+    // var image = document.getElementById('myImage1');
+    // image.src = imageURI;
+
+      
+    }
+
+
     
 
 
@@ -41,14 +54,25 @@
 
 <h3>Using the Camera with Phoneagp Build</h3>
 
-<img  id="myImage1" src="" />
+<img  id="myImage1"   style="display:block; width:300px; height:200px;" src="" />
+<img  id="myImage2"   style="display:block; width:100px;" src="" />
 
    
 
-<input type=button value="Another Picture" style="font-size:30px" onclick="{
+<input type=button value="Picture as URI" style="font-size:30px" onclick="{
 
-        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI });
+        navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+  
+}">
+
+
+
+   
+
+<input type=button value="Picture As Data" style="font-size:30px" onclick="{
+
+       navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.DATA_URL});
+ 
   
 }">
 
