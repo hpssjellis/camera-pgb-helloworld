@@ -10,7 +10,7 @@
 
     function onDeviceReady() {
         alert('Camera device ready to use');
-        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50,
+        navigator.camera.getPicture(onCameraSuccess, onCameraError, { quality: 50, allowEdit: true,
         destinationType: Camera.DestinationType.FILE_URI });
        
     }
@@ -20,15 +20,15 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onCameraSuccess(acceleration) {
-        
+     alert('photo success')   
     var image = document.getElementById('myImage1');
     image.src = imageURI;
     }
 
     // onError: Failed to get the acceleration
     //
-    function onCameraError() {
-        alert('onError!');
+    function onCameraError(message) {
+        alert('Failed because: ' + message)
     }
     
 
@@ -41,7 +41,7 @@
 
 <h3>Using the Camera with Phoneagp Build</h3>
 
-<img style="display:none;" id="myImage1" src="" />
+<img  id="myImage1" src="" />
 
    
 
@@ -64,22 +64,6 @@
 
 
 
-
-
-
-
-
-
-
-
-function onSuccess(imageURI) {
-    var image = document.getElementById('myImage');
-    image.src = imageURI;
-}
-
-function onFail(message) {
-    alert('Failed because: ' + message);
-}
 
 
 
