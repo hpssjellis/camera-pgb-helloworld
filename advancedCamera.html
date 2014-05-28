@@ -57,11 +57,27 @@
 <h3>Using the Camera with Phonegap Build</h3>
 
 Image URI:<img  id="myImage1"   style="display:block; width:300px; height:200px;" src=""      ontouchstart="{
-    alert( document.getElementById('myImage1').src)
+   // alert( document.getElementById('myImage1').src)
+ 
+  
+   var context = document.getElementById('myImage1').getContext('2d');
+   context.drawImage(document.getElementById('myImage1'), 0, 0);
+   alert(context.getImageData(50, 50, 1, 1).data)
+   
+   
 
 }" /><br>
 Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px;" src=""   ontouchstart="{
-    alert( document.getElementById('myImage2').src)
+   // alert( document.getElementById('myImage2').src)
+   
+    
+    var context = document.getElementById('myImage2').getContext('2d');
+    context.drawImage(document.getElementById('myImage2'), 0, 0);
+    alert(context.getImageData(x, y, 1, 1).data)
+   
+ 
+   
+   
 
 }" /><br>
 
