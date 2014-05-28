@@ -57,11 +57,11 @@
 <h3>Using the Camera with Phonegap Build</h3>
 
 Image URI:<img  id="myImage1"   style="display:block; width:300px; height:200px;" src=""      ontouchstart="{
-    alert('touch1')
+    alert( document.getElementById('myImage1').src)
 
 }" /><br>
 Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px;" src=""   ontouchstart="{
-    alert('touch2')
+    alert( document.getElementById('myImage2').src)
 
 }" /><br>
 
@@ -69,7 +69,8 @@ Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px
 
 <input type=button value="Picture as URI" style="font-size:30px" onclick="{
 
-        navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    alert( Camera.DestinationType.FILE_URI)
   
 }">
 
@@ -79,8 +80,8 @@ Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px
 
 <input type=button value="Picture As Data" style="font-size:30px" onclick="{
 
-       navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, allowEdit: true, destinationType: Camera.DestinationType.DATA_URL});
- 
+   navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, allowEdit: true, destinationType: Camera.DestinationType.DATA_URL});
+   alert(Camera.DestinationType.DATA_URL)
   
 }">
 
