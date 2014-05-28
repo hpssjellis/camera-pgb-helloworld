@@ -6,7 +6,7 @@ Got the camera working using phonegap build and my Samsung S3.
 
 
 
-
+May 28 2014 working on data analysis of the image. This may take a while to complete.
 
 
 
