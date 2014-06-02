@@ -37,13 +37,14 @@ function myGo2(){
 
 
 
-<input type=button value=go onclick="{myGo()}">
+<input type=button value="Image (many formats) to Canvas" onclick="{myGo()}">
 
-<input type=button value=go2 onclick="{myGo2()}"><br>
+<input type=button value="Canvas to Image (PNG)" onclick="{myGo2()}"><br>
 
-<input type=button value=save onclick="{
+<input type=button value="Open Chrome to save image" onclick="{
 
-   location = myCanvas.toDataURL('image/png')
+   window.open(myCanvas.toDataURL('image/png'),'_system');
+   
 }"><br>
 
 
