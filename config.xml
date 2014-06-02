@@ -49,6 +49,6 @@
     
 
    
-    <access origin="*" /> 
+   <!--  <access origin="*" /> -->
 
 </widget>
