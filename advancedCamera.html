@@ -106,7 +106,7 @@ var img = new Image();
 img.onload = function() {
     ctx.drawImage(img, 50, 50);
 }
-img.src = 'a-few-of-my-favorite-things.png'; //transparent png
+img.src = 'http://rocksetta.com/rocksetta-music-shapes/a-few-of-my-favorite-things.png'; //transparent png
 
 
 
@@ -118,9 +118,20 @@ img.src = 'a-few-of-my-favorite-things.png'; //transparent png
     
     
 <input type=button value="getPixel camera" style="font-size:30px" onclick="{
-     var context = document.getElementById('myImage1').getContext('2d');
- // Get the CanvasPixelArray from the given coordinates and dimensions.
-var imgd = context.getImageData(x, y, width, height);
+
+// get the image
+var img2 = document.getElementById('myImage1');
+// create and customize the canvas
+var canvas2 = document.createElement('canvas2');
+canvas2.width = 500;
+canvas2.height = 200;
+document.body.appendChild(canvas2);
+// get the context
+var ctx2 = canvas2.getContext('2d');
+// draw the image into the canvas
+ctx2.drawImage(img2, 0, 0);
+
+var imgd = ctx2.getImageData(x, y, width, height);
 var pix = imgd.data;
 
 // Loop over each pixel and invert the color.
@@ -132,7 +143,7 @@ for (var i = 0, n = pix.length; i < n; i += 4) {
 }
 
 // Draw the ImageData at the given (x,y) coordinates.
-context.putImageData(imgd, x, y);
+ctx2.putImageData(imgd, x, y);
   
   
 }">
