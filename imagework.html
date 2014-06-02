@@ -1,0 +1,65 @@
+
+
+
+
+<script> 
+
+
+
+ function myGo(){ 
+
+    var myImage = document.getElementById("ringoImage"); 
+    myCanvas = document.createElement("canvas");     // do not use var, not sure why
+ 
+    myCanvas.width = myImage.width; 
+    myCanvas.height = myImage.height; 
+    myCanvas.getContext("2d").drawImage(myImage, 0, 0); 
+  
+    document.getElementById("canvasHolder").appendChild(myCanvas); 
+
+}
+
+
+
+
+
+function myGo2(){
+   var myImage2 = new Image(); 
+   myImage2.src = myCanvas.toDataURL('image/png'); 
+
+   document.getElementById('pngHolder').appendChild(myImage2); 
+ 
+}
+
+
+ </script> 
+
+
+
+
+<input type=button value=go onclick="{myGo()}">
+
+<input type=button value=go2 onclick="{myGo2()}"><br>
+
+
+
+	
+	<img src="http://rocksetta.com/rocksetta-music-shapes/numbersLetters7.png" id="ringoImage" />
+	
+	
+
+	<p id="canvasHolder">
+		
+	</p>
+	
+
+	<p id="pngHolder">
+		
+	</p>
+	
+
+
+
+
+
+<br><br><hr>
