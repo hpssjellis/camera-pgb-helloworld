@@ -278,7 +278,7 @@ document.getElementById("myImage3").src = canvas.toDataURL();
 
 
 
-   <canvas id="canvas1" width="500" height="500"></canvas>
+   <canvas id="canvas1" width="500" height="500"       onmousedown = "myFunM(evt)"></canvas>
 
 
 
@@ -288,9 +288,38 @@ document.getElementById("myImage3").src = canvas.toDataURL();
 <img id="myImage3" src="" style="width:300px; height:300px" ><br>sadfjhasdf
  
  
+       
+</font> 
+ 
+ <script>
+
+   function myFunM(evt) {
+        //  get mouse coordinates from event parameter
+        var mouseX = parseInt(evt.offsetX);
+        var mouseY = parseInt(evt.offsetY);
+
+        //  get imageData object from canvas
+        var imagedata = myContext.getImageData(0, 0,  myCanvas.width, myCanvas.height);
+
+        //  get pixelArray from imagedata object
+        var data = imagedata.data;  
+
+        //  calculate offset into array for pixel at mouseX/mouseY
+        var i = ((mouseY * canvas.width) + mouseX) * 4;
+
+        //  get RGBA values
+        var r = data[i];        
+        var g = data[i+1];
+        var b = data[i+2];
+        var a = data[i+3];
+
+alert()
+
+}
  
  
  
+ </script>
  
  
  
@@ -301,8 +330,7 @@ document.getElementById("myImage3").src = canvas.toDataURL();
  
  
        
-       
-</font>
+
 </body>
 </html>
 
