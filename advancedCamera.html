@@ -56,7 +56,7 @@
 
 <h3>Using the Camera with Phonegap Build</h3>
 
-Image URI:<img  id="myImage1"   style="display:block; width:300px; height:200px;" src=""      /><br>
+Image URI:<img  id="myImage1"   style="display:block; width:500px; height:500px;" src=""      /><br>
 
 
    
@@ -232,23 +232,23 @@ ctx2.putImageData(imgd, x, y);
 function myFunc(){
 
 // get the image
-var img = document.getElementById("myImage2");
+var img2.src =    document.getElementById('myImage1').src
 // create and customize the canvas
 var canvas = document.createElement("canvas");
 canvas.width = 500;
 canvas.height = 200;
 document.body.appendChild(canvas);
 // get the context
-var ctx = canvas.getContext("2d");
+var ctx2 = canvas.getContext("2d");
 // draw the image into the canvas
-ctx.drawImage(img, 0, 0);
+ctx2.drawImage(img2, 0, 0);
 
 
 
 
 
 // get the image data object
-var image = ctx.getImageData(0, 0, 500, 200);
+var image = ctx2.getImageData(0, 0, 500, 200);
 // get the image data values 
 var imageData = image.data,
 length = imageData.length;
@@ -259,9 +259,9 @@ for(var i=3; i < length; i+=4){
 // after the manipulation, reset the data
 image.data = imageData;
 // and put the imagedata back to the canvas
-ctx.putImageData(image, 0, 0);
+ctx2.putImageData(image, 0, 0);
 
-document.getElementById("myImage2").src = canvas.toDataURL();
+document.getElementById("myImage3").src = canvas.toDataURL();
 
 
 
@@ -285,7 +285,7 @@ document.getElementById("myImage2").src = canvas.toDataURL();
 
 
 
-<img id="myImage2" src="" style="width:300px; height:300px" ><br>sadfjhasdf
+<img id="myImage3" src="" style="width:300px; height:300px" ><br>sadfjhasdf
  
  
  
