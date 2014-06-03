@@ -63,7 +63,7 @@ Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px
 
 <input type=button value="Picture as URI" style="font-size:30px" onclick="{
 
-    navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, allowEdit : true, encodingType: Camera.EncodingType.PNG, destinationType: Camera.DestinationType.FILE_URI });
     alert( Camera.DestinationType.FILE_URI)
   
 }">
