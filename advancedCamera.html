@@ -9,7 +9,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-        alert('Camera device ready to use');
+       // alert('Camera device ready to use');
     }
   
 
@@ -19,7 +19,7 @@
     
     
         function onURISuccess(imageURI) {
-     alert('photo URI success')   
+   //  alert('photo URI success')   
    document.getElementById('myImage1').src = imageURI;
 
       
@@ -34,7 +34,7 @@
     
     
     function onDataSuccess(imageData) {
-     alert('photo data success')   
+   //  alert('photo data success')   
      document.getElementById('myImage2').src =  "data:image/jpeg;base64," + imageData;
     // var image = document.getElementById('myImage1');
     // image.src = imageURI;
@@ -57,7 +57,7 @@
 <h3>Using the Camera with Phonegap Build</h3>
 
 Image URI:<img  id="myImage1"   style="display:block; width:300px; height:200px;" src=""      /><br>
-Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px;" src=""   /><br>
+
 
    
 
@@ -80,7 +80,7 @@ Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px
 }">
     
        
-   <canvas id="canvas1" width="500" height="500"></canvas>
+
    
 <input type=button value="getPixel 1" style="font-size:30px" onclick="{
 
@@ -104,17 +104,7 @@ img.onload = function() {
   img.src =   document.getElementById('myImage1').src
 
 var imgd = ctx.getImageData(0, 0, img.width, img.height);
-var pix = imgd.data;
 
-// Loop over each pixel and invert the color.
-for (var i = 0, n = pix.length; i < n; i += 4) {
-    pix[i  ] = 255 - pix[i  ]; // red
-    pix[i+1] = 255 - pix[i+1]; // green
-    pix[i+2] = 255 - pix[i+2]; // blue
-    // i+3 is alpha (the fourth element)
-}
-
-// Draw the ImageData at the given (x,y) coordinates.
 ctx.putImageData(img, 0, 0);
 
 
@@ -151,18 +141,18 @@ img.onload = function() {
   img.src =   document.getElementById('myImage1').src
 
 var imgd = ctx.getImageData(0, 0, img.width, img.height);
-var pix = imgd.data;
+//var pix = imgd.data;
 
 // Loop over each pixel and invert the color.
-for (var i = 0, n = pix.length; i < n; i += 4) {
-    pix[i  ] = 255 - pix[i  ]; // red
-    pix[i+1] = 255 - pix[i+1]; // green
-    pix[i+2] = 255 - pix[i+2]; // blue
+for (var i = 0, n = imgd.data.length; i < n; i += 4) {
+    imgd.data[i  ] = 255 - imgd.data[i  ]; // red
+    imgd.data[i+1] = 255 - imgd.data[i+1]; // green
+    imgd.data[i+2] = 255 - imgd.data[i+2]; // blue
     // i+3 is alpha (the fourth element)
 }
 
 // Draw the ImageData at the given (x,y) coordinates.
-ctx.putImageData(pix, 0, 0);
+ctx.putImageData(imgd.data, 0, 0);
 
 
    
@@ -190,7 +180,7 @@ ctx.putImageData(pix, 0, 0);
 
     
     
-<input type=hidden value="getPixel camera" style="font-size:30px" onclick="{
+<input type=hidden value="other" style="font-size:30px" onclick="{
 
 // get the image
 var img2 = document.getElementById('myImage1');
@@ -235,7 +225,7 @@ ctx2.putImageData(imgd, x, y);
  
  
  
-<input type=hidden value=wow3 onclick="{  myFunc()}"><br>
+<input type=button value=wow3 onclick="{  myFunc()}"><br>
 
 
 <script>
@@ -277,6 +267,23 @@ document.getElementById("myImage2").src = canvas.toDataURL();
 
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+   <canvas id="canvas1" width="500" height="500"></canvas>
+
+
+
+
+
 
 <img id="myImage2" src="" style="width:300px; height:300px" ><br>sadfjhasdf
  
