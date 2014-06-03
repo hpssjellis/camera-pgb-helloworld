@@ -119,7 +119,7 @@ ctx.putImageData(img, 0, 0);
 
 
 
-<input type=button value="getPixel 2" style="font-size:30px" onclick="{
+<input type=button value="getPixel 2" style="font-size:30px; width=1000px" onclick="{
 
 
 
@@ -142,9 +142,9 @@ img.onload = function() {
 
 var imgd = ctx.getImageData(0, 0, img.width, img.height);
 //var pix = imgd.data;
-
+alert(imgd.data.length)
 // Loop over each pixel and invert the color.
-for (var i = 0, n = imgd.data.length; i < n; i += 4) {
+for (var i = 0; i < imgd.data.length; i += 4;) {
     imgd.data[i  ] = 255 - imgd.data[i  ]; // red
     imgd.data[i+1] = 255 - imgd.data[i+1]; // green
     imgd.data[i+2] = 255 - imgd.data[i+2]; // blue
