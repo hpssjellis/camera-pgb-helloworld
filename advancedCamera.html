@@ -72,13 +72,6 @@ Image Data:<img  id="myImage2"   style="display:block; width:500px; height:400px
 
    
 
-<input type=button value="Picture As Data" style="font-size:30px" onclick="{
-
-   navigator.camera.getPicture(onDataSuccess, onCameraError, { quality: 50, allowEdit: true, destinationType: Camera.DestinationType.DATA_URL});
-   alert(Camera.DestinationType.DATA_URL)
-  
-}">
-
 
 <input type=button value="Back" style="font-size:30px" onclick="{
 
@@ -100,17 +93,17 @@ var can = document.getElementById('canvas1');
 var ctx = can.getContext('2d');
 
 
-ctx.fillRect(50,50,200,200); // something in the background
+//ctx.fillRect(50,50,200,200); // something in the background
 
 var img = new Image();
 img.onload = function() {
     ctx.drawImage(img, 50, 50);
 }
-//img.src = 'http://rocksetta.com/rocksetta-music-shapes/a-few-of-my-favorite-things.png'; //transparent png
+
 
   img.src =   document.getElementById('myImage1').src
 
-var imgd = ctx.getImageData(x, y, width, height);
+var imgd = ctx.getImageData(0, 0, img.width, img.height);
 var pix = imgd.data;
 
 // Loop over each pixel and invert the color.
@@ -122,16 +115,82 @@ for (var i = 0, n = pix.length; i < n; i += 4) {
 }
 
 // Draw the ImageData at the given (x,y) coordinates.
-ctx.putImageData(img, x, y);
+ctx.putImageData(img, 0, 0);
 
 
    
 
   
 }">
+
+
+
+
+
+
+
+<input type=button value="getPixel 2" style="font-size:30px" onclick="{
+
+
+
+
+
+
+var can = document.getElementById('canvas1');
+var ctx = can.getContext('2d');
+
+
+//ctx.fillRect(50,50,200,200); // something in the background
+
+var img = new Image();
+img.onload = function() {
+    ctx.drawImage(img, 50, 50);
+}
+
+
+  img.src =   document.getElementById('myImage1').src
+
+var imgd = ctx.getImageData(0, 0, img.width, img.height);
+var pix = imgd.data;
+
+// Loop over each pixel and invert the color.
+for (var i = 0, n = pix.length; i < n; i += 4) {
+    pix[i  ] = 255 - pix[i  ]; // red
+    pix[i+1] = 255 - pix[i+1]; // green
+    pix[i+2] = 255 - pix[i+2]; // blue
+    // i+3 is alpha (the fourth element)
+}
+
+// Draw the ImageData at the given (x,y) coordinates.
+ctx.putImageData(pix, 0, 0);
+
+
+   
+
+  
+}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
-<input type=button value="getPixel camera" style="font-size:30px" onclick="{
+<input type=hidden value="getPixel camera" style="font-size:30px" onclick="{
 
 // get the image
 var img2 = document.getElementById('myImage1');
@@ -176,7 +235,7 @@ ctx2.putImageData(imgd, x, y);
  
  
  
-<input type=button value=wow3 onclick="{  myFunc()}"><br>
+<input type=hidden value=wow3 onclick="{  myFunc()}"><br>
 
 
 <script>
